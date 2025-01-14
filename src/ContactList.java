@@ -72,6 +72,9 @@ public class ContactList {
 
     public void printContacts() {
         // TODO
+        for (Person p : contacts) {
+           System.out.println(p.toString());
+        }
     }
 
 
