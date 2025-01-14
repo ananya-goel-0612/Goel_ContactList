@@ -66,8 +66,7 @@ public class ContactList {
         System.out.println("Phone Number: ");
         String phone = s.nextLine();
 
-        Person p = new Person(firstName, lastName, phone);
-        return p;
+        return new Person(firstName, lastName, phone);
     }
 
     public void printContacts() {
