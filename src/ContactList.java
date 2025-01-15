@@ -27,9 +27,9 @@ public class ContactList {
             getCelebrityInfo();
         }
         else {
-            // TODO: Do we have to have an else?
+            Person person = getPersonInfo();
+            contacts.add(person);
         }
-
     }
 
     public void getStudentInfo() {
@@ -70,11 +70,25 @@ public class ContactList {
     }
 
     public void printContacts() {
-        // TODO
-        for (Person p : contacts) {
-           System.out.println(p.toString());
+        for (Person person : contacts) {
+           System.out.println(person.toString());
         }
     }
 
+    public void sort(int sortBy) {
+        // firstName
+        if (sortBy == 0) {
 
+        }
+        // lastName
+        else if (sortBy == 1) {
+
+        }
+        // phoneNumber
+        else if (sortBy == 2) {
+
+        }
+    }
+
+    
 }
