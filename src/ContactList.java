@@ -75,6 +75,7 @@ public class ContactList {
         }
     }
 
+    // TODO: FINISH
     public void sort(int sortBy) {
         // firstName
         if (sortBy == 0) {
@@ -88,6 +89,33 @@ public class ContactList {
         else if (sortBy == 2) {
 
         }
+    }
+
+    public Person searchByFirstName(String firstName) {
+        for (Person p : contacts) {
+            if (p.getFirstName().equals(firstName)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public Person searchByLastName(String lastName) {
+        for (Person p : contacts) {
+            if (p.getLastName().equals(lastName)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public Person searchByPhoneNumber(String phoneNumber) {
+        for (Person p : contacts) {
+            if (p.getPhoneNumber().equals(phoneNumber)) {
+                return p;
+            }
+        }
+        return null;
     }
 
     
