@@ -127,4 +127,22 @@ public class ContactList {
         }
         return students;
     }
+
+    public void run() {
+
+    }
+
+    public void printConsole() {
+        System.out.println("Menu:");
+        System.out.println("1. Add Contact");
+        System.out.println("2. List All Contacts By First Name");
+        System.out.println("3. List All Contacts By Last Name");
+        System.out.println("4. List All Contacts By Phone Number");
+        System.out.println("5. List All Students");
+        System.out.println("6. Search By First Name");
+        System.out.println("7. Search By Last Name");
+        System.out.println("8. Search By Phone Number");
+        System.out.println("0. Exit");
+    }
+
 }
