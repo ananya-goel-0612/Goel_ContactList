@@ -77,6 +77,13 @@ public class ContactList {
 
     // TODO: FINISH
     public void sort(int sortBy) {
+        // compareTo returns positive if it comes later
+        // swap if it returns a negative
+
+        // car and carpool
+        // would return negative bc car should come first
+
+        // make all names either toLowercase or toUppercase for compareTo
         // firstName
         if (sortBy == 0) {
 
