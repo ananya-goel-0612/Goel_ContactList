@@ -118,5 +118,13 @@ public class ContactList {
         return null;
     }
 
-    
+    public ArrayList<Student> listStudents() {
+        ArrayList<Student> students = new ArrayList<Student>();
+        for (Person p : contacts) {
+            if (p instanceof Student) {
+                students.add((Student) p);
+            }
+        }
+        return students;
+    }
 }
