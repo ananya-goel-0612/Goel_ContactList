@@ -144,7 +144,7 @@ public class ContactList {
     // TODO: MAKE THE SEARCHES WORK WITH LOWERCASE AND UPPERCASE
     public Person searchByFirstName(String firstName) {
         for (Person p : contacts) {
-            if (p.getFirstName().equals(firstName)) {
+            if (p.getFirstName().equalsIgnoreCase(firstName)) {
                 return p;
             }
         }
@@ -153,7 +153,7 @@ public class ContactList {
 
     public Person searchByLastName(String lastName) {
         for (Person p : contacts) {
-            if (p.getLastName().equals(lastName)) {
+            if (p.getLastName().equalsIgnoreCase(lastName)) {
                 return p;
             }
         }
@@ -222,21 +222,23 @@ public class ContactList {
             else if (choice == 6) {
                 System.out.println("Enter a first name: ");
                 String name = s.nextLine();
-                if (searchByFirstName(name) == null) {
-                    System.out.println(name + " is not in the list");
+                Person p = searchByFirstName(name);
+                if (p != null) {
+                    System.out.println(p.toString());
                 }
                 else {
-                    System.out.println(searchByFirstName(name));
+                    System.out.println(name + " is not in the list");
                 }
             }
             else if (choice == 7) {
                 System.out.println("Enter a last name: ");
                 String name = s.nextLine();
-                if (searchByLastName(name) == null) {
-                    System.out.println(name + " is not in the list");
+                Person p = searchByLastName(name);
+                if (p != null) {
+                    System.out.println(p.toString());
                 }
                 else {
-                    System.out.println(searchByLastName(name));
+                    System.out.println(name + " is not in the list");
                 }
             }
             else if (choice == 8) {
