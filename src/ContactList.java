@@ -75,15 +75,7 @@ public class ContactList {
         }
     }
 
-    // TODO: FINISH
     public void sort(int sortBy) {
-        // compareTo returns positive if it comes later
-        // swap if it returns a negative
-
-        // car and carpool
-        // would return negative bc car should come first
-
-        // make all names either toLowercase or toUppercase for compareTo
         // firstName
         if (sortBy == 0) {
             sortByFirstName();
@@ -141,7 +133,6 @@ public class ContactList {
         }
     }
 
-    // TODO: MAKE THE SEARCHES WORK WITH LOWERCASE AND UPPERCASE
     public Person searchByFirstName(String firstName) {
         for (Person p : contacts) {
             if (p.getFirstName().equalsIgnoreCase(firstName)) {
@@ -202,17 +193,14 @@ public class ContactList {
                 addContact();
             }
             else if (choice == 2) {
-                // TODO: sort?
                 sort(0);
                 printContacts();
             }
             else if (choice == 3) {
-                // TODO: sort
                 sort(1);
                 printContacts();
             }
             else if (choice == 4) {
-                // TODO: sort
                 sort(2);
                 printContacts();
             }
@@ -275,5 +263,4 @@ public class ContactList {
         list.run();
 
     }
-
 }
