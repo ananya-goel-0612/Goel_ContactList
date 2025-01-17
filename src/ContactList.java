@@ -175,13 +175,11 @@ public class ContactList {
             printConsole();
             Scanner s = new Scanner(System.in);
 
-            boolean pickingNumber = true;
             // Make sure the user selects a number in menu
-            while (pickingNumber) {
+            while (true) {
                 choice = s.nextInt();
                 s.nextLine();
                 if (choice >= 0 && choice < 9) {
-                    pickingNumber = false;
                     break;
                 }
                 else {
