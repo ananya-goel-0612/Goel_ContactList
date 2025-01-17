@@ -86,22 +86,52 @@ public class ContactList {
         // make all names either toLowercase or toUppercase for compareTo
         // firstName
         if (sortBy == 0) {
-
+            sortByFirstName();
         }
         // lastName
         else if (sortBy == 1) {
-
+            sortByLastName();
         }
         // phoneNumber
         else if (sortBy == 2) {
-            for (Person p : contacts){
-                for (int i = 0; i < contacts.size() - 1; i++){
-                    Person temp;
-                    if(contacts.get(i).getPhoneNumber().compareTo(contacts.get(i + 1).getPhoneNumber()) > 0){
-                        temp = contacts.get(i);
-                        contacts.set(i,contacts.get(i + 1));
-                        contacts.set(i + 1,temp);
-                    }
+            sortByPhoneNumber();;
+        }
+    }
+
+    public void sortByFirstName() {
+        for (Person p : contacts){
+            for (int i = 0; i < contacts.size() - 1; i++){
+                Person temp;
+                if (contacts.get(i).getFirstName().compareTo(contacts.get(i + 1).getFirstName()) > 0){
+                    temp = contacts.get(i);
+                    contacts.set(i,contacts.get(i + 1));
+                    contacts.set(i + 1, temp);
+                }
+            }
+        }
+    }
+
+    public void sortByLastName() {
+        for (Person p : contacts){
+            for (int i = 0; i < contacts.size() - 1; i++){
+                Person temp;
+                if(contacts.get(i).getLastName().compareTo(contacts.get(i + 1).getLastName()) > 0){
+                    temp = contacts.get(i);
+                    contacts.set(i,contacts.get(i + 1));
+                    contacts.set(i + 1, temp);
+                }
+            }
+        }
+    }
+
+    public void sortByPhoneNumber() {
+        for (Person p : contacts){
+            for (int i = 0; i < contacts.size() - 1; i++){
+                Person temp;
+                if(contacts.get(i).getPhoneNumber().compareTo(contacts.get(i + 1).getPhoneNumber()) > 0){
+                    temp = contacts.get(i);
+                    contacts.set(i,contacts.get(i + 1));
+                    contacts.set(i + 1,temp);
                 }
             }
         }
@@ -170,17 +200,17 @@ public class ContactList {
             }
             else if (choice == 2) {
                 // TODO: sort?
-                sortBy(0);
+                sort(0);
                 printContacts();
             }
             else if (choice == 3) {
                 // TODO: sort
-                sortBy(1);
+                sort(1);
                 printContacts();
             }
             else if (choice == 4) {
                 // TODO: sort
-                sortBy(2);
+                sort(2);
                 printContacts();
             }
             else if (choice == 5) {
@@ -216,7 +246,7 @@ public class ContactList {
                     System.out.println(searchByPhoneNumber(number));
                 }
             }
-            else if (choice == 0) {
+            else {
                 break;
             }
         }
@@ -233,6 +263,12 @@ public class ContactList {
         System.out.println("7. Search By Last Name");
         System.out.println("8. Search By Phone Number");
         System.out.println("0. Exit");
+    }
+
+    public static void main(String[] args) {
+        ContactList list = new ContactList();
+        list.run();
+
     }
 
 }
