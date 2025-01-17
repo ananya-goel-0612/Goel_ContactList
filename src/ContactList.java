@@ -94,7 +94,16 @@ public class ContactList {
         }
         // phoneNumber
         else if (sortBy == 2) {
-
+            for (Person p : contacts){
+                for (int i = 0; i < contacts.size() - 1; i++){
+                    Person temp;
+                    if(contacts.get(i).getPhoneNumber().compareTo(contacts.get(i + 1).getPhoneNumber()) > 0){
+                        temp = contacts.get(i);
+                        contacts.set(i,contacts.get(i + 1));
+                        contacts.set(i + 1,temp);
+                    }
+                }
+            }
         }
     }
 
