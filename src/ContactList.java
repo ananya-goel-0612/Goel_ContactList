@@ -136,10 +136,11 @@ public class ContactList {
     }
 
     public void run() {
+        int choice = 0;
+
         while (true) {
             printConsole();
             Scanner s = new Scanner(System.in);
-            int choice = 0;
 
             boolean pickingNumber = true;
             //make sure user selects a number in menu
@@ -149,6 +150,9 @@ public class ContactList {
                 if (choice >= 0 && choice < 9) {
                     pickingNumber = false;
                     break;
+                }
+                else {
+                    printConsole();
                 }
             }
 
