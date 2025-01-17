@@ -102,7 +102,9 @@ public class ContactList {
         for (Person p : contacts){
             for (int i = 0; i < contacts.size() - 1; i++){
                 Person temp;
-                if (contacts.get(i).getFirstName().compareTo(contacts.get(i + 1).getFirstName()) > 0){
+                String name1 = contacts.get(i).getFirstName().toLowerCase();
+                String name2 = contacts.get(i + 1).getFirstName().toLowerCase();
+                if (name1.compareTo(name2) > 0){
                     temp = contacts.get(i);
                     contacts.set(i,contacts.get(i + 1));
                     contacts.set(i + 1, temp);
@@ -115,7 +117,9 @@ public class ContactList {
         for (Person p : contacts){
             for (int i = 0; i < contacts.size() - 1; i++){
                 Person temp;
-                if(contacts.get(i).getLastName().compareTo(contacts.get(i + 1).getLastName()) > 0){
+                String name1 = contacts.get(i).getLastName().toLowerCase();
+                String name2 = contacts.get(i + 1).getLastName().toLowerCase();
+                if(name1.compareTo(name2) > 0){
                     temp = contacts.get(i);
                     contacts.set(i,contacts.get(i + 1));
                     contacts.set(i + 1, temp);
@@ -137,6 +141,7 @@ public class ContactList {
         }
     }
 
+    // TODO: MAKE THE SEARCHES WORK WITH LOWERCASE AND UPPERCASE
     public Person searchByFirstName(String firstName) {
         for (Person p : contacts) {
             if (p.getFirstName().equals(firstName)) {
@@ -180,7 +185,7 @@ public class ContactList {
             Scanner s = new Scanner(System.in);
 
             boolean pickingNumber = true;
-            //make sure user selects a number in menu
+            // Make sure the user selects a number in menu
             while (pickingNumber) {
                 choice = s.nextInt();
                 s.nextLine();
