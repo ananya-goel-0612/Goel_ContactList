@@ -164,14 +164,12 @@ public class ContactList {
         return null;
     }
 
-    public ArrayList<Student> listStudents() {
-        ArrayList<Student> students = new ArrayList<Student>();
+    public void listStudents() {
         for (Person p : contacts) {
             if (p instanceof Student) {
-                students.add((Student) p);
+                System.out.println(p.toString());
             }
         }
-        return students;
     }
 
     public void run() {
