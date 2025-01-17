@@ -136,7 +136,77 @@ public class ContactList {
     }
 
     public void run() {
+        while (true) {
+            printConsole();
+            Scanner s = new Scanner(System.in);
+            int choice = 0;
 
+            boolean pickingNumber = true;
+            //make sure user selects a number in menu
+            while (pickingNumber) {
+                choice = s.nextInt();
+                s.nextLine();
+                if (choice >= 0 && choice < 9) {
+                    pickingNumber = false;
+                    break;
+                }
+            }
+
+            if (choice == 1) {
+                addContact();
+            }
+            else if (choice == 2) {
+                // TODO: sort?
+                sortBy(0);
+                printContacts();
+            }
+            else if (choice == 3) {
+                // TODO: sort
+                sortBy(1);
+                printContacts();
+            }
+            else if (choice == 4) {
+                // TODO: sort
+                sortBy(2);
+                printContacts();
+            }
+            else if (choice == 5) {
+                listStudents();
+            }
+            else if (choice == 6) {
+                System.out.println("Enter a first name: ");
+                String name = s.nextLine();
+                if (searchByFirstName(name) == null) {
+                    System.out.println(name + " is not in the list");
+                }
+                else {
+                    System.out.println(searchByFirstName(name));
+                }
+            }
+            else if (choice == 7) {
+                System.out.println("Enter a last name: ");
+                String name = s.nextLine();
+                if (searchByLastName(name) == null) {
+                    System.out.println(name + " is not in the list");
+                }
+                else {
+                    System.out.println(searchByLastName(name));
+                }
+            }
+            else if (choice == 8) {
+                System.out.println("Enter a phone number: ");
+                String number = s.nextLine();
+                if (searchByPhoneNumber(number) == null) {
+                    System.out.println(number + " is not in the list");
+                }
+                else {
+                    System.out.println(searchByPhoneNumber(number));
+                }
+            }
+            else if (choice == 0) {
+                break;
+            }
+        }
     }
 
     public void printConsole() {
