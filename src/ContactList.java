@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// Class that contains the main method to run all other methods
 public class ContactList {
     private ArrayList<Person> contacts;
 
     public ContactList() {
+        // Initializes the ArrayList of contacts
         contacts = new ArrayList<Person>();
     }
 
@@ -12,6 +14,8 @@ public class ContactList {
         return contacts;
     }
 
+    // When the user chooses to add a new contact, get all the information needed
+    // To initialize an instance of the Person class
     public void addContact() {
         System.out.println("Select a type of contact to add:");
         System.out.println("1. Student");
@@ -20,12 +24,15 @@ public class ContactList {
         Scanner s = new Scanner(System.in);
         int type = s.nextInt();
 
+        // Run getStudentInfo() if the user chooses to add a Student
         if (type == 1) {
             getStudentInfo();
         }
+        // Run getCelebrityInfo() if the user chooses to add a Celebrity
         else if (type == 2){
             getCelebrityInfo();
         }
+        // Otherwise create a new Person
         else {
             Person person = getPersonInfo();
             contacts.add(person);
@@ -33,27 +40,35 @@ public class ContactList {
     }
 
     public void getStudentInfo() {
+        // Gets the information required to create a new Person
         Person p = getPersonInfo();
 
+        // Also receives the grade level of the student
         Scanner s = new Scanner(System.in);
         System.out.println("Grade: ");
         int grade = s.nextInt();
 
+        // Instantiates a new Student based on the information given
         Student student = new Student(p.getFirstName(), p.getLastName(), p.getPhoneNumber(), grade);
         contacts.add(student);
     }
 
     public void getCelebrityInfo() {
+        // Gets the information required to create a new Person
         Person p = getPersonInfo();
 
+        // Also gets the celebrity's occupation
         Scanner s = new Scanner(System.in);
         System.out.println("Occupation: ");
         String occupation = s.nextLine();
 
+        // Instantiates a new celebrity based on the information given
         Celebrity celeb = new Celebrity(p.getFirstName(), p.getLastName(), p.getPhoneNumber(), occupation);
         contacts.add(celeb);
     }
 
+    // Every single student and celebrity needs to have a Person's attributes
+    // So this method gets all the required information to instantiate a Person
     public Person getPersonInfo() {
         System.out.println("Please fill in the following information.");
         System.out.println("First Name: ");
@@ -66,12 +81,15 @@ public class ContactList {
         System.out.println("Phone Number: ");
         String phone = s.nextLine();
 
+        // Returns the Person that was created
         return new Person(firstName, lastName, phone);
     }
 
+    // Prints out all the contacts that have been added
     public void printContacts() {
         for (Person person : contacts) {
-           System.out.println(person.toString());
+            // Prints the toString() for each contact
+            System.out.println(person.toString());
         }
     }
 
