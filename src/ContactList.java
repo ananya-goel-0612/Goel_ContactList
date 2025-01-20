@@ -93,27 +93,31 @@ public class ContactList {
         }
     }
 
+    // Method to sort the contacts, depending on what the user inputs
     public void sort(int sortBy) {
-        // firstName
+        // Sorts by first name (alphabetical)
         if (sortBy == 0) {
             sortByFirstName();
         }
-        // lastName
+        // Sorts by last name (alphabetical)
         else if (sortBy == 1) {
             sortByLastName();
         }
-        // phoneNumber
+        // Sorts by phone number (numerical)
         else if (sortBy == 2) {
             sortByPhoneNumber();;
         }
     }
 
+    // Bubble sort method to sort the contacts by first name
     public void sortByFirstName() {
         for (Person p : contacts){
             for (int i = 0; i < contacts.size() - 1; i++){
                 Person temp;
                 String name1 = contacts.get(i).getFirstName().toLowerCase();
                 String name2 = contacts.get(i + 1).getFirstName().toLowerCase();
+
+                // Swaps the location of the two "people" if the second first name should come earlier
                 if (name1.compareTo(name2) > 0){
                     temp = contacts.get(i);
                     contacts.set(i,contacts.get(i + 1));
@@ -123,12 +127,15 @@ public class ContactList {
         }
     }
 
+    // Bubble sort method to sort the contacts by last name
     public void sortByLastName() {
         for (Person p : contacts){
             for (int i = 0; i < contacts.size() - 1; i++){
                 Person temp;
                 String name1 = contacts.get(i).getLastName().toLowerCase();
                 String name2 = contacts.get(i + 1).getLastName().toLowerCase();
+
+                // Swaps the location of the two "people" if the second last name should come earlier
                 if(name1.compareTo(name2) > 0){
                     temp = contacts.get(i);
                     contacts.set(i,contacts.get(i + 1));
@@ -138,10 +145,14 @@ public class ContactList {
         }
     }
 
+    // Bubble sort method to sort the contacts by phone number
     public void sortByPhoneNumber() {
         for (Person p : contacts){
             for (int i = 0; i < contacts.size() - 1; i++){
                 Person temp;
+
+                // Swaps the location of the two "people" if the second phone number is less than
+                // The first
                 if(contacts.get(i).getPhoneNumber().compareTo(contacts.get(i + 1).getPhoneNumber()) > 0){
                     temp = contacts.get(i);
                     contacts.set(i,contacts.get(i + 1));
@@ -151,21 +162,27 @@ public class ContactList {
         }
     }
 
+    // Searches the list of contacts to see if there's a match for the inputted first name
     public Person searchByFirstName(String firstName) {
         for (Person p : contacts) {
+            // If a match is found, return the person
             if (p.getFirstName().equalsIgnoreCase(firstName)) {
                 return p;
             }
         }
+        // If no match is found, null should be returned
         return null;
     }
 
+    // Searches the list of contacts to see if there's a match for the inputted last name
     public Person searchByLastName(String lastName) {
         for (Person p : contacts) {
+            // If a match is found, return the person
             if (p.getLastName().equalsIgnoreCase(lastName)) {
                 return p;
             }
         }
+        // If no match is found, null should be returned
         return null;
     }
 
