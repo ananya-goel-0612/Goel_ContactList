@@ -1,3 +1,5 @@
+// Contact List by Ananya Goel
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -186,27 +188,36 @@ public class ContactList {
         return null;
     }
 
+    // Searches the list of contacts for a match to the inputted phone number
     public Person searchByPhoneNumber(String phoneNumber) {
         for (Person p : contacts) {
+            // If a match is found between the two numbers, return the person
             if (p.getPhoneNumber().equals(phoneNumber)) {
                 return p;
             }
         }
+        // If no match is found, null should be returned
         return null;
     }
 
+    // Prints out all the Student objects in the list of contacts
     public void listStudents() {
         for (Person p : contacts) {
+            // If p is a Student, print its toString method
             if (p instanceof Student) {
                 System.out.println(p.toString());
             }
         }
     }
 
+    // Method to run the console
     public void run() {
+        // Keeps looping until the user decides to exit
         while (true) {
             int choice = 0;
+            // Prints the option menu
             printConsole();
+            // A scanner is initialized to receive user input
             Scanner s = new Scanner(System.in);
 
             // Make sure the user selects a number in menu
@@ -214,51 +225,65 @@ public class ContactList {
                 choice = s.nextInt();
                 s.nextLine();
 
+                // If the inputted number is valid, break and move on to the rest of the code
                 if (choice >= 0 && choice < 9) {
                     break;
                 }
+                // If the number still isn't valid, print the option menu again until the number
+                // Is valid
                 else {
                     printConsole();
                 }
             }
 
+            // #1 = option to add a contact to the list
             if (choice == 1) {
                 addContact();
             }
+            // #2 = sort the contact list by first name
             else if (choice == 2) {
                 sort(0);
                 printContacts();
             }
+            // #3 = sort the contact list by last name
             else if (choice == 3) {
                 sort(1);
                 printContacts();
             }
+            // #4 = sort the contact list by phone numbers
             else if (choice == 4) {
                 sort(2);
                 printContacts();
             }
+            // #5 = list all Students in the list of contacts
             else if (choice == 5) {
                 listStudents();
             }
+            // #6 = searches the contact list for a first name inputted by the user
             else if (choice == 6) {
                 System.out.println("Enter a first name: ");
                 String name = s.nextLine();
 
                 Person p = searchByFirstName(name);
 
+                // If a person is returned, a match was found so the toString method
+                // Should be printed
                 if (p != null) {
                     System.out.println(p.toString());
                 }
+                // Otherwise a match was not found in the list of contacts
                 else {
                     System.out.println(name + " is not in the list");
                 }
             }
+            // #7 = searches the contact list for a last name inputted by the user
             else if (choice == 7) {
                 System.out.println("Enter a last name: ");
                 String name = s.nextLine();
 
                 Person p = searchByLastName(name);
 
+                // The toString() method is only printed if a match was found
                 if (p != null) {
                     System.out.println(p.toString());
                 }
@@ -266,10 +291,12 @@ public class ContactList {
                     System.out.println(name + " is not in the list");
                 }
             }
+            // #8 = searches the contact list for a phone number inputted by the user
             else if (choice == 8) {
                 System.out.println("Enter a phone number: ");
                 String number = s.nextLine();
 
+                // Only prints the toString() method if a match is found
                 if (searchByPhoneNumber(number) == null) {
                     System.out.println(number + " is not in the list");
                 }
@@ -277,12 +304,14 @@ public class ContactList {
                     System.out.println(searchByPhoneNumber(number));
                 }
             }
+            // #0 = exit
             else {
                 break;
             }
         }
     }
 
+    // Method to print the option menu
     public void printConsole() {
         System.out.println("Menu:");
         System.out.println("1. Add Contact");
@@ -296,8 +325,11 @@ public class ContactList {
         System.out.println("0. Exit");
     }
 
+    // Main Method
     public static void main(String[] args) {
+        // Creates a new ArrayList of contacts
         ContactList list = new ContactList();
+        // Runs the console
         list.run();
 
     }
