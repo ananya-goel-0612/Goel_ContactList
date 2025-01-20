@@ -169,9 +169,8 @@ public class ContactList {
     }
 
     public void run() {
-        int choice = 0;
-
         while (true) {
+            int choice = 0;
             printConsole();
             Scanner s = new Scanner(System.in);
 
@@ -179,6 +178,7 @@ public class ContactList {
             while (true) {
                 choice = s.nextInt();
                 s.nextLine();
+
                 if (choice >= 0 && choice < 9) {
                     break;
                 }
@@ -208,7 +208,9 @@ public class ContactList {
             else if (choice == 6) {
                 System.out.println("Enter a first name: ");
                 String name = s.nextLine();
+
                 Person p = searchByFirstName(name);
+
                 if (p != null) {
                     System.out.println(p.toString());
                 }
@@ -219,7 +221,9 @@ public class ContactList {
             else if (choice == 7) {
                 System.out.println("Enter a last name: ");
                 String name = s.nextLine();
+
                 Person p = searchByLastName(name);
+
                 if (p != null) {
                     System.out.println(p.toString());
                 }
@@ -230,6 +234,7 @@ public class ContactList {
             else if (choice == 8) {
                 System.out.println("Enter a phone number: ");
                 String number = s.nextLine();
+
                 if (searchByPhoneNumber(number) == null) {
                     System.out.println(number + " is not in the list");
                 }
