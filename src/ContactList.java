@@ -205,7 +205,7 @@ public class ContactList {
         for (Person p : contacts) {
             // If p is a Student, print its toString method
             if (p instanceof Student) {
-                System.out.println(p.toString());
+                System.out.println(p);
             }
         }
     }
