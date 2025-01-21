@@ -43,7 +43,7 @@ public class ContactList {
 
     public void getStudentInfo() {
         // Gets the information required to create a new Person
-        Person p = getPersonInfo();
+        Person person = getPersonInfo();
 
         // Also receives the grade level of the student
         Scanner s = new Scanner(System.in);
@@ -51,13 +51,13 @@ public class ContactList {
         int grade = s.nextInt();
 
         // Instantiates a new Student based on the information given
-        Student student = new Student(p.getFirstName(), p.getLastName(), p.getPhoneNumber(), grade);
+        Student student = new Student(person.getFirstName(), person.getLastName(), person.getPhoneNumber(), grade);
         contacts.add(student);
     }
 
     public void getCelebrityInfo() {
         // Gets the information required to create a new Person
-        Person p = getPersonInfo();
+        Person person = getPersonInfo();
 
         // Also gets the celebrity's occupation
         Scanner s = new Scanner(System.in);
@@ -65,7 +65,8 @@ public class ContactList {
         String occupation = s.nextLine();
 
         // Instantiates a new celebrity based on the information given
-        Celebrity celeb = new Celebrity(p.getFirstName(), p.getLastName(), p.getPhoneNumber(), occupation);
+        Celebrity celeb = new Celebrity(person.getFirstName(), person.getLastName(),
+                person.getPhoneNumber(), occupation);
         contacts.add(celeb);
     }
 
@@ -113,7 +114,7 @@ public class ContactList {
 
     // Bubble sort method to sort the contacts by first name
     public void sortByFirstName() {
-        for (Person p : contacts){
+        for (Person person : contacts){
             for (int i = 0; i < contacts.size() - 1; i++){
                 Person temp;
                 String name1 = contacts.get(i).getFirstName().toLowerCase();
@@ -131,7 +132,7 @@ public class ContactList {
 
     // Bubble sort method to sort the contacts by last name
     public void sortByLastName() {
-        for (Person p : contacts){
+        for (Person person : contacts){
             for (int i = 0; i < contacts.size() - 1; i++){
                 Person temp;
                 String name1 = contacts.get(i).getLastName().toLowerCase();
@@ -149,7 +150,7 @@ public class ContactList {
 
     // Bubble sort method to sort the contacts by phone number
     public void sortByPhoneNumber() {
-        for (Person p : contacts){
+        for (Person person : contacts){
             for (int i = 0; i < contacts.size() - 1; i++){
                 Person temp;
 
@@ -166,10 +167,10 @@ public class ContactList {
 
     // Searches the list of contacts to see if there's a match for the inputted first name
     public Person searchByFirstName(String firstName) {
-        for (Person p : contacts) {
+        for (Person person : contacts) {
             // If a match is found, return the person
-            if (p.getFirstName().equalsIgnoreCase(firstName)) {
-                return p;
+            if (person.getFirstName().equalsIgnoreCase(firstName)) {
+                return person;
             }
         }
         // If no match is found, null should be returned
@@ -178,10 +179,10 @@ public class ContactList {
 
     // Searches the list of contacts to see if there's a match for the inputted last name
     public Person searchByLastName(String lastName) {
-        for (Person p : contacts) {
+        for (Person person : contacts) {
             // If a match is found, return the person
-            if (p.getLastName().equalsIgnoreCase(lastName)) {
-                return p;
+            if (person.getLastName().equalsIgnoreCase(lastName)) {
+                return person;
             }
         }
         // If no match is found, null should be returned
@@ -190,10 +191,10 @@ public class ContactList {
 
     // Searches the list of contacts for a match to the inputted phone number
     public Person searchByPhoneNumber(String phoneNumber) {
-        for (Person p : contacts) {
+        for (Person person : contacts) {
             // If a match is found between the two numbers, return the person
-            if (p.getPhoneNumber().equals(phoneNumber)) {
-                return p;
+            if (person.getPhoneNumber().equals(phoneNumber)) {
+                return person;
             }
         }
         // If no match is found, null should be returned
@@ -202,10 +203,10 @@ public class ContactList {
 
     // Prints out all the Student objects in the list of contacts
     public void listStudents() {
-        for (Person p : contacts) {
-            // If p is a Student, print its toString method
-            if (p instanceof Student) {
-                System.out.println(p);
+        for (Person person : contacts) {
+            // If person is a Student, print its toString method
+            if (person instanceof Student) {
+                System.out.println(person);
             }
         }
     }
@@ -264,12 +265,12 @@ public class ContactList {
                 System.out.println("Enter a first name: ");
                 String name = s.nextLine();
 
-                Person p = searchByFirstName(name);
+                Person person = searchByFirstName(name);
 
                 // If a person is returned, a match was found so the toString method
                 // Should be printed
-                if (p != null) {
-                    System.out.println(p);
+                if (person != null) {
+                    System.out.println(person);
                 }
                 // Otherwise a match was not found in the list of contacts
                 else {
@@ -281,11 +282,11 @@ public class ContactList {
                 System.out.println("Enter a last name: ");
                 String name = s.nextLine();
 
-                Person p = searchByLastName(name);
+                Person person = searchByLastName(name);
 
                 // The toString() method is only printed if a match was found
-                if (p != null) {
-                    System.out.println(p);
+                if (person != null) {
+                    System.out.println(person);
                 }
                 else {
                     System.out.println(name + " is not in the list");
