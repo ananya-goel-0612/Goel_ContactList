@@ -91,7 +91,7 @@ public class ContactList {
     public void printContacts() {
         for (Person person : contacts) {
             // Prints the toString() for each contact
-            System.out.println(person.toString());
+            System.out.println(person);
         }
     }
 
@@ -269,7 +269,7 @@ public class ContactList {
                 // If a person is returned, a match was found so the toString method
                 // Should be printed
                 if (p != null) {
-                    System.out.println(p.toString());
+                    System.out.println(p);
                 }
                 // Otherwise a match was not found in the list of contacts
                 else {
@@ -285,7 +285,7 @@ public class ContactList {
 
                 // The toString() method is only printed if a match was found
                 if (p != null) {
-                    System.out.println(p.toString());
+                    System.out.println(p);
                 }
                 else {
                     System.out.println(name + " is not in the list");
