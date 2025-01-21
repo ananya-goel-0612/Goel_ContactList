@@ -108,7 +108,7 @@ public class ContactList {
         }
         // Sorts by phone number (numerical)
         else if (sortBy == 2) {
-            sortByPhoneNumber();;
+            sortByPhoneNumber();
         }
     }
 
